@@ -262,7 +262,7 @@
                 android:id="@+id/text_view_table3_row_1"
                 android:layout_column="1"
                 android:padding="3dip"
-                android:text="Inflación mensual estimada"
+                android:text="Inflación mensual"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />

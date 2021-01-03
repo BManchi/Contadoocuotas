@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calcularContado(){
-        if (precioContado!! > 0 && descuento!! > 0) {
+        if (precioContado!! > 0 && descuento!! > 0) { //TODO descuento puede ser cero
             finalContado = precioContado?.times((1 - (descuento?.toDouble()?.div(100)!!)))
             binding.finalContado.text = finalContado.toString()
 
@@ -77,12 +77,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun calcularCuotas(){
+    fun calcularCuotas(){ //TODO agregar EditText en precio final financiado, lo que calcularía el interés implícito
         if (precioCuotas!! > 0 && interes!! > 0 && cantidadCuotas!! > 0) {
             finalCuotas = String.format("%.2f", precioCuotas?.times((1 + (interes?.toDouble()?.div(100)!!)))).toDouble()
             binding.finalCuotas.text = finalCuotas.toString()
 
-            finalDescontado = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble()?.div(100)).pow(cantidadCuotas!!))).toDouble()
+            finalDescontado = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
             binding.finalDescontado.text = finalDescontado.toString()
 
             calcularMejor()
