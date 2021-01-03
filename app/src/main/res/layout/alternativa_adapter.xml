@@ -19,7 +19,7 @@
             tools:text="columna 1" />
 
         <TextView
-            android:id="@+id/text_view_column_2"
+            android:id="@+id/precio_contado"
             android:layout_width="94dp"
             android:layout_height="match_parent"
             android:gravity="right"
