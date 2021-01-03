@@ -3,6 +3,7 @@ package com.bmanchi.contadoocuotas.View
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import com.bmanchi.contadoocuotas.databinding.ActivityMainBinding
@@ -33,37 +34,84 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        // TODO add null check
+
+        // TODO add null check (HECHO)
+        /** Si el text del editText es Empty, pone 0 en la variable a modificar */
+        /** Igual creo que se puede modificar y achicar */
         binding.precioContado.doAfterTextChanged {
-            precioContado = binding.precioContado.text.toString().toDouble()
+
+            if (it.toString().isEmpty()){
+                precioContado = 0.00
+            } else {
+                precioContado = it.toString().toDouble()
+            }
             calcularContado()
+
+//            precioContado = binding.precioContado.text.toString().toDouble()
+//            calcularContado()
         }
 
         binding.descuentoContado.doAfterTextChanged {
-            descuento = binding.descuentoContado.text.toString().toInt()
+            if (it.toString().isEmpty()){
+                descuento = 0
+            } else {
+                descuento = it.toString().toInt()
+            }
             calcularContado()
+
+//            descuento = binding.descuentoContado.text.toString().toInt()
+//            calcularContado()
         }
 
         binding.precioCuotas.doAfterTextChanged {
-            precioCuotas = binding.precioCuotas.text.toString().toDouble()
+            if (it.toString().isEmpty()){
+                precioCuotas = 0.00
+            } else {
+                precioCuotas = it.toString().toDouble()
+            }
             calcularCuotas()
+
+//            precioCuotas = binding.precioCuotas.text.toString().toDouble()
+//            calcularCuotas()
         }
 
         binding.cuotas.doAfterTextChanged {
-            cantidadCuotas = binding.cuotas.text.toString().toInt()
+            if (it.toString().isEmpty()){
+                cantidadCuotas = 0
+            } else {
+                cantidadCuotas = it.toString().toInt()
+            }
             calcularCuotas()
+
+//            cantidadCuotas = binding.cuotas.text.toString().toInt()
+//            calcularCuotas()
         }
 
         binding.interes.doAfterTextChanged {
-            interes = binding.interes.text.toString().toInt()
+            if (it.toString().isEmpty()){
+                interes = 0
+            } else {
+                interes = it.toString().toInt()
+            }
             calcularCuotas()
+
+//            interes = binding.interes.text.toString().toInt()
+//            calcularCuotas()
         }
 
         binding.inflacionMensual.doAfterTextChanged {
-            inflacion = binding.inflacionMensual.text.toString().toDouble()
+            if (it.toString().isEmpty()){
+                inflacion = 0.00
+            } else {
+                inflacion = it.toString().toDouble()
+            }
             calcularCuotas()
+
+//            inflacion = binding.inflacionMensual.text.toString().toDouble()
+//            calcularCuotas()
         }
     }
+
 
     fun calcularContado(){
         if (precioContado!! > 0 && descuento!! > 0) {
@@ -81,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         if (precioCuotas!! > 0 && interes!! > 0 && cantidadCuotas!! > 0) {
             finalCuotas = String.format("%.2f", precioCuotas?.times((1 + (interes?.toDouble()?.div(100)!!)))).toDouble()
             binding.finalCuotas.text = finalCuotas.toString()
+
 
             finalDescontado = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble()?.div(100)).pow(cantidadCuotas!!))).toDouble()
             binding.finalDescontado.text = finalDescontado.toString()
@@ -105,4 +154,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
     //TODO agregar tasa efectiva mensual y tasa de financiación real con botón +
+
+    //todo: toda la logica debiera estar en en viewModel (Hacer MVVM). Lo podemos ver en la semana
+
+    //todo: el Layout debiera ser con CnostraintLayout, y to usaria cardsView para agrupar los 3 o 2 grupos diferentes que tenes en el layout
+
+    //todo: No creo que sean necesarios los toast cada vez que el usuario pone un numbero, igual asumo que los pusiste mas para vos que para la version final
+
+
 }

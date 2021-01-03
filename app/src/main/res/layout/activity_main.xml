@@ -44,6 +44,7 @@
                 android:id="@+id/precio_contado"
                 android:layout_width="94dp"
                 android:layout_height="match_parent"
+                android:hint="0.00"
                 android:gravity="right"
                 android:inputType="numberDecimal"
                 android:padding="3dip"
@@ -56,7 +57,7 @@
             <TextView
                 android:id="@+id/text_view_row_2"
                 android:layout_column="1"
-                android:padding="3dip"
+                android:padding="3dp"
                 android:text="Descuento por pago al contado"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
