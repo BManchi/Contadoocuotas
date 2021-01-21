@@ -13,5 +13,4 @@
     <string name="text_view_row_3">Precio final al contado</string>
     <string name="text_view_row_2">Descuento por pago al contado</string>
     <string name="text_view_row_1">Precio al contado</string>
-    <string name="ingresar">Ingresar datos</string>
 </resources>

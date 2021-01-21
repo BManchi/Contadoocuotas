@@ -120,9 +120,6 @@ class MainActivity : AppCompatActivity() {
 
             calcularMejor()
         }
-        else {
-            Toast.makeText(this, "faltan datos", Toast.LENGTH_SHORT).show()
-        }
     }
 
     fun calcularCuotas(){ //TODO agregar EditText en precio final financiado, lo que calcularía el interés implícito
@@ -131,13 +128,10 @@ class MainActivity : AppCompatActivity() {
             binding.finalCuotas.text = finalCuotas.toString()
 
 
-            finalDescontado = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble()?.div(100)).pow(cantidadCuotas!!))).toDouble()
+            finalDescontado = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
             binding.finalDescontado.text = finalDescontado.toString()
 
             calcularMejor()
-        }
-        else {
-            Toast.makeText(this, "faltan datos", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -157,9 +151,6 @@ class MainActivity : AppCompatActivity() {
 
     //todo: toda la logica debiera estar en en viewModel (Hacer MVVM). Lo podemos ver en la semana
 
-    //todo: el Layout debiera ser con CnostraintLayout, y to usaria cardsView para agrupar los 3 o 2 grupos diferentes que tenes en el layout
-
-    //todo: No creo que sean necesarios los toast cada vez que el usuario pone un numbero, igual asumo que los pusiste mas para vos que para la version final
 
 
 }
