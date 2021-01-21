@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun calcularContado(){
-        if (precioContado!! > 0 && descuento!! > 0) { 
+        if (precioContado!! > 0 && descuento!! > 0) {
             finalContado = precioContado?.times((1 - (descuento?.toDouble()?.div(100)!!)))
             binding.finalContado.text = finalContado.toString()
 
