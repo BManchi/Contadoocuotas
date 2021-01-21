@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
 
-
-        // TODO add null check (HECHO)
         /** Si el text del editText es Empty, pone 0 en la variable a modificar */
         /** Igual creo que se puede modificar y achicar */
         binding.precioContado.doAfterTextChanged {
@@ -114,8 +112,13 @@ class MainActivity : AppCompatActivity() {
 
 
     fun calcularContado(){
-        if (precioContado!! > 0 && descuento!! > 0) { //TODO descuento puede ser cero
+        if (precioContado!! > 0 && descuento!! > 0) { 
             finalContado = precioContado?.times((1 - (descuento?.toDouble()?.div(100)!!)))
+            binding.finalContado.text = finalContado.toString()
+
+            calcularMejor()
+        } else {
+            finalContado = precioContado
             binding.finalContado.text = finalContado.toString()
 
             calcularMejor()
