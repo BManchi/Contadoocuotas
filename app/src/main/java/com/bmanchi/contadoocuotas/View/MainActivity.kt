@@ -144,12 +144,12 @@ class MainActivity : AppCompatActivity() {
     fun calcularMejor() {
         if (finalContado != null && finalDescontado != null){
             if (finalContado!! > finalDescontado!!) {
-                binding.tableLayout1.setBackgroundColor(Color.parseColor("#D3D2D2"))
-                binding.tableLayout2.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                binding.contadoLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
+                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
             }
             else if (finalDescontado!! > finalContado!!){
-                binding.tableLayout1.setBackgroundColor(Color.parseColor("#C6EFD2"))
-                binding.tableLayout2.setBackgroundColor(Color.parseColor("#D3D2D2"))
+                binding.contadoLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
             }
         }
     }

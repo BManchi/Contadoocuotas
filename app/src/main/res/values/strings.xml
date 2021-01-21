@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Contado o Cuotas</string>
+    <string name="zero_double">0.00</string>
+    <string name="titulo_contado">Condiciones por pago al contado</string>
+    <string name="titulo_cuotas">Condiciones por pago en cuotas</string>
+    <string name="titulo_otros">Estimaciones para proyectar</string>
+    <string name="text_view_table3_row_1">Inflación mensual</string>
+    <string name="text_view_table2_row_5">Precio descontado a valor actual</string>
+    <string name="text_view_table2_row_4">Precio final financiado</string>
+    <string name="text_view_table2_row_3">Tasa de interés por pago en cuotas</string>
+    <string name="text_view_table2_row_2">Cantidad de cuotas</string>
+    <string name="text_view_table2_row_1">Precio al contado</string>
+    <string name="text_view_row_3">Precio final al contado</string>
+    <string name="text_view_row_2">Descuento por pago al contado</string>
+    <string name="text_view_row_1">Precio al contado</string>
+    <string name="ingresar">Ingresar datos</string>
 </resources>

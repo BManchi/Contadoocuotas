@@ -10,274 +10,377 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="6dp"
-        android:text="Condiciones por pago al contado"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout1"
+        android:layout_marginTop="16dp"
+        android:text="@string/titulo_contado"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/tableLayout1"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contadoLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#D3D2D2"
-        android:padding="8dp"
+        android:fadingEdge="horizontal"
         android:stretchColumns="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1">
 
 
-        <TableRow>
+        <TextView
+            android:id="@+id/text_view_row_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_row_1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/text_view_row_1"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Precio al contado"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/precio_contado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/zero_double"
+            android:inputType="numberDecimal"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_row_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp" />
 
-            <EditText
-                android:id="@+id/precio_contado"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:hint="0.00"
-                android:gravity="right"
-                android:inputType="numberDecimal"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </TableRow>
 
-        <TableRow>
+        <TextView
+            android:id="@+id/text_view_row_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="3dp"
+            android:text="@string/text_view_row_2"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_row_1" />
 
-            <TextView
-                android:id="@+id/text_view_row_2"
-                android:layout_column="1"
-                android:padding="3dp"
-                android:text="Descuento por pago al contado"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/descuento_contado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/zero_double"
+            android:inputType="number"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_row_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp" />
 
-            <EditText
-                android:id="@+id/descuento_contado"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:inputType="number"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-        </TableRow>
 
-        <TableRow>
+        <TextView
+            android:id="@+id/text_view_row_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_row_3"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_row_2" />
 
-            <TextView
-                android:id="@+id/text_view_row_3"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Precio final al contado"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/final_contado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_row_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp"
+            tools:text="final_contado" />
 
-            <TextView
-                android:id="@+id/final_contado"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:text="final_contado" />
-        </TableRow>
-    </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="6dp"
-        android:text="Condiciones por pago en cuotas"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
+        android:layout_marginTop="16dp"
+        android:text="@string/titulo_cuotas"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout1" />
+        app:layout_constraintTop_toBottomOf="@+id/contadoLayout" />
 
-    <TableLayout
-        android:id="@+id/tableLayout2"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cuotasLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#D3D2D2"
-        android:padding="8dp"
+        android:fadingEdge="horizontal"
         android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <TableRow>
 
-            <TextView
-                android:id="@+id/text_view_table2_row_1"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Precio al contado"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_view_table2_row_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_table2_row_1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/precio_cuotas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/precio_cuotas"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:inputType="numberDecimal"/>
-        </TableRow>
 
-        <TableRow>
+        <EditText
+            android:id="@+id/precio_cuotas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/ingresar"
+            android:inputType="numberDecimal"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table2_row_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp" />
 
-            <TextView
-                android:id="@+id/text_view_table2_row_2"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Cantidad de cuotas"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_view_table2_row_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/ingresar"
+            android:padding="3dip"
+            android:text="@string/text_view_table2_row_2"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/cuotas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_table2_row_1" />
 
-            <EditText
-                android:id="@+id/cuotas"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:inputType="number"/>
-        </TableRow>
+        <EditText
+            android:id="@+id/cuotas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/ingresar"
+            android:inputType="number"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table2_row_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp" />
 
-        <TableRow>
 
-            <TextView
-                android:id="@+id/text_view_table2_row_3"
-                android:layout_width="298dp"
-                android:layout_height="33dp"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Tasa de Interes por pago en cuotas"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_view_table2_row_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_table2_row_3"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/interes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_table2_row_2" />
 
-            <EditText
-                android:id="@+id/interes"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:inputType="numberDecimal"/>
-        </TableRow>
-        <TableRow>
+        <EditText
+            android:id="@+id/interes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/ingresar"
+            android:inputType="numberDecimal"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table2_row_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_view_table2_row_3"
+            app:layout_constraintWidth_min="100dp" />
 
-            <TextView
-                android:id="@+id/text_view_table2_row_4"
-                android:layout_width="298dp"
-                android:layout_height="33dp"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Precio final financiado"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/final_cuotas"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                tools:text="final_cuotas" />
-        </TableRow>
-        <TableRow>
+        <TextView
+            android:id="@+id/text_view_table2_row_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_table2_row_4"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/final_cuotas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_table2_row_3" />
 
-            <TextView
-                android:id="@+id/text_view_table2_row_5"
-                android:layout_width="298dp"
-                android:layout_height="33dp"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Precio descontado a valor actual"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/final_cuotas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table2_row_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_min="100dp"
+            tools:text="final_cuotas" />
 
-            <TextView
-                android:id="@+id/final_descontado"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:text="final_descontado" />
-        </TableRow>
-    </TableLayout>
+
+        <TextView
+            android:id="@+id/text_view_table2_row_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_table2_row_5"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/final_descontado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_table2_row_4" />
+
+        <TextView
+            android:id="@+id/final_descontado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table2_row_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="final_descontado" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="6dp"
-        android:text="Estimaciones para proyectar"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout3"
+        android:layout_marginTop="16dp"
+        android:text="@string/titulo_otros"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/cuotasLayout" />
 
-    <TableLayout
-        android:id="@+id/tableLayout3"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dataLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#D3D2D2"
-        android:padding="8dp"
+        android:fadingEdge="horizontal"
         android:stretchColumns="1"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintWidth_min="200dp">
 
-        <TableRow>
 
-            <TextView
-                android:id="@+id/text_view_table3_row_1"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Inflación mensual"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_view_table3_row_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="3dip"
+            android:text="@string/text_view_table3_row_1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/inflacion_mensual"
-                android:layout_width="94dp"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:padding="3dip"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:inputType="numberDecimal"/>
-        </TableRow>
-    </TableLayout>
+        <EditText
+            android:id="@+id/inflacion_mensual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:hint="@string/ingresar"
+            android:inputType="numberDecimal"
+            android:minWidth="100dp"
+            android:padding="3dip"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_table3_row_1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
