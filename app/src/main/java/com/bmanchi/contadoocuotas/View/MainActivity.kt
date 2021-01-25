@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity() {
             binding.finalDescontado.text = finalDescontado.toString()
 
             calcularMejor()
-        }
+        } //TODO agregar else interés cero (implicito en precio)
     }
 
     fun calcularMejor() {
