@@ -153,7 +153,4 @@ class MainActivity : AppCompatActivity() {
     //TODO agregar tasa efectiva mensual y tasa de financiación real con botón +
 
     //todo: toda la logica debiera estar en en viewModel (Hacer MVVM). Lo podemos ver en la semana
-
-
-
 }
