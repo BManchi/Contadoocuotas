@@ -11,6 +11,8 @@ private const val TAG = "calcularViewModel"
 
 class CalcularViewModel: ViewModel() {
 
+    //todo br1: Todos estos objetos son realmente nulleables? porque si le das valor 0 al instancearlos
+    //todo br1: y nunca los pasas a null, debielas sacarle el signo de pregunta
     var precioContado: Double? = 0.0
     var descuento: Int? = 0
     var finalContado = MutableLiveData<Double>()
