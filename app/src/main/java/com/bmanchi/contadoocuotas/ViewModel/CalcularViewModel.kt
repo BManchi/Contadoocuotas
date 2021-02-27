@@ -29,17 +29,19 @@ class CalcularViewModel: ViewModel() {
 
     var inflacion:Double? = 0.0
 
+    var mejorAlternativa = MutableLiveData<String>()
+
+
     fun calcularContado(){
         if (precioContado!! > 0 && descuento!! > 0) {
             finalContado.value = precioContado?.times((1 - (descuento?.toDouble()?.div(100)!!)))
-//            binding.finalContado.text = finalContado.toString()
+
             Log.d(TAG, "calularContado() finalContado = ${finalContado.value}")
 
 
             calcularMejor()
         } else {
             finalContado.value = precioContado
-//            binding.finalContado.text = finalContado.toString()
 
             Log.d(TAG, "calularContado() finalContado = ${finalContado.value}")
 
@@ -53,17 +55,16 @@ class CalcularViewModel: ViewModel() {
             if (interes!! == 0){
                 finalCuotas = precioCuotas
                 Log.d(TAG, "finalCuotas = $finalCuotas")
-//                binding.finalCuotas.text = finalCuotas.toString()
-                finalDescontado.value = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
-//                binding.finalDescontado.text = finalDescontado.toString()
+                finalDescontado.value = String.format("%.2f",
+                    finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
             }
 
             if (interes!! > 0){
-                finalCuotas = String.format("%.2f", precioCuotas?.times((1 + (interes?.toDouble()?.div(100)!!)))).toDouble()
-//                binding.finalCuotas.text = finalCuotas.toString()
+                finalCuotas = String.format("%.2f",
+                    precioCuotas?.times((1 + (interes?.toDouble()?.div(100)!!)))).toDouble()
                 Log.d(TAG, "finalCuotas = $finalCuotas")
-                finalDescontado.value = String.format("%.2f", finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
-//                binding.finalDescontado.text = finalDescontado.toString()
+                finalDescontado.value = String.format("%.2f",
+                    finalCuotas?.div((1+ inflacion!!.toDouble().div(100)).pow(cantidadCuotas!!))).toDouble()
                 Log.d(TAG, "finalDescontado = ${finalDescontado.value}")
             }
         }
@@ -74,14 +75,12 @@ class CalcularViewModel: ViewModel() {
         Log.d(TAG, "calularMejor()")
         if (finalContado.value != null && finalDescontado.value != null){
             if (finalContado.value!! > finalDescontado.value!!) {
-                Log.d(TAG, "${finalContado.value} > ${finalDescontado.value} ")
-//                binding.contadoLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
-//                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                Log.d(TAG, "${finalContado.value} > ${finalDescontado.value} mejor alternativa $mejorAlternativa")
+                mejorAlternativa.value = "financiado"
             }
             else if (finalDescontado.value!! > finalContado.value!!){
-                Log.d(TAG, "${finalContado.value} < ${finalDescontado.value} ")
-//                binding.contadoLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
-//                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
+                Log.d(TAG, "${finalContado.value} < ${finalDescontado.value} mejor alternativa $mejorAlternativa")
+                mejorAlternativa.value = "contado"
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.bmanchi.contadoocuotas.View
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,18 +25,16 @@ class MainActivity : AppCompatActivity() {
         /** Igual creo que se puede modificar y achicar */
         binding.precioContado.doAfterTextChanged {
 
-            if (it.toString().isEmpty()){
-                model.precioContado = 0.00
+            if (it.toString().isEmpty()) {
+                model.precioContado = 0.00  //TODO estas var están insanciadas en 0 en el VM. Se podría eliminar este if
             } else {
                 model.precioContado = it.toString().toDouble()
             }
             model.calcularContado()
         }
 
-
-
         binding.descuentoContado.doAfterTextChanged {
-            if (it.toString().isEmpty()){
+            if (it.toString().isEmpty()) {
                 model.descuento = 0
             } else {
                 model.descuento = it.toString().toInt()
@@ -43,8 +42,12 @@ class MainActivity : AppCompatActivity() {
             model.calcularContado()
         }
 
+        model.finalContadoLiveData.observe(this, { text ->
+            binding.finalContado.text = text
+        })
+
         binding.precioCuotas.doAfterTextChanged {
-            if (it.toString().isEmpty()){
+            if (it.toString().isEmpty()) {
                 model.precioCuotas = 0.00
             } else {
                 model.precioCuotas = it.toString().toDouble()
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cuotas.doAfterTextChanged {
-            if (it.toString().isEmpty()){
+            if (it.toString().isEmpty()) {
                 model.cantidadCuotas = 0
             } else {
                 model.cantidadCuotas = it.toString().toInt()
@@ -62,22 +65,36 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.interes.doAfterTextChanged {
-            if (it.toString().isEmpty()){
+            if (it.toString().isEmpty()) {
                 model.interes = 0
             } else {
                 model.interes = it.toString().toInt()
             }
             model.calcularCuotas()
         }
+        model.finalDescontadoLiveData.observe(this, { text ->
+            binding.finalDescontado.text = text
+        })
 
         binding.inflacionMensual.doAfterTextChanged {
-            if (it.toString().isEmpty()){
+            if (it.toString().isEmpty()) {
                 model.inflacion = 0.00
             } else {
                 model.inflacion = it.toString().toDouble()
             }
             model.calcularCuotas()
         }
+
+        model.mejorAlternativa.observe(this, { text ->
+            if (text == "financiado") {
+                binding.contadoLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
+                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+            }
+            if (text == "contado") {
+                binding.contadoLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
+            }
+        })
     }
     //TODO agregar tasa efectiva mensual y tasa de financiación real con botón +
 }
