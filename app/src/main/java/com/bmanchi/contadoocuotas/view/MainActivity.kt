@@ -89,4 +89,5 @@ class MainActivity : AppCompatActivity() {
         })
     }
     //TODO agregar tasa efectiva mensual y tasa de financiación real con botón +
+    //TODO agregar mas altertativas de financiación para comparar entre sí
 }
