@@ -49,28 +49,17 @@ class CalcularViewModel : ViewModel() {
 
     fun calcularCuotas() {
         Log.d(TAG, "calularCuotas()")
-        if (precioCuotas > 0 && cantidadCuotas > 0) {
-            if (interes == 0) {
-                finalCuotas = precioCuotas
-                Log.d(TAG, "finalCuotas = $finalCuotas")
-                finalDescontado.value = String.format(
-                    "%.2f",
-                    finalCuotas.div((1 + inflacion.div(100)).pow(cantidadCuotas))
-                ).toDouble()
-            }
 
-            if (interes > 0) {
-                finalCuotas = String.format(
-                    "%.2f",
-                    precioCuotas.times((1 + (interes.toDouble().div(100))))
-                ).toDouble()
-                Log.d(TAG, "finalCuotas = $finalCuotas")
-                finalDescontado.value = String.format(
-                    "%.2f",
-                    finalCuotas.div((1 + inflacion.div(100)).pow(cantidadCuotas))
-                ).toDouble()
-                Log.d(TAG, "finalDescontado = ${finalDescontado.value}")
+
+        if (precioCuotas > 0 && cantidadCuotas > 0) {
+            var cuotaDescontada = 0.00
+            finalCuotas = 0.00
+            for (i in 1..cantidadCuotas) {
+                cuotaDescontada = ((precioCuotas*(1+interes.toDouble().div(100))).div(cantidadCuotas).div((1 + inflacion.div(100)).pow(i)))
+                finalCuotas += cuotaDescontada
+                Log.d(TAG, "agrega $cuotaDescontada a nuevo final descontado correcto ${finalDescontado.value}")
             }
+            finalDescontado.value = String.format("%.2f", finalCuotas).toDouble()
         }
         calcularMejor()
     }
@@ -81,13 +70,13 @@ class CalcularViewModel : ViewModel() {
             if (finalContado.value!! > finalDescontado.value!!) {
                 Log.d(
                     TAG,
-                    "${finalContado.value} > ${finalDescontado.value} mejor alternativa $mejorAlternativa"
+                    "${finalContado.value} > ${finalDescontado.value} mejor alternativa ${mejorAlternativa.value}"
                 )
                 mejorAlternativa.value = "financiado"
             } else if (finalDescontado.value!! > finalContado.value!!) {
                 Log.d(
                     TAG,
-                    "${finalContado.value} < ${finalDescontado.value} mejor alternativa $mejorAlternativa"
+                    "${finalContado.value} < ${finalDescontado.value} mejor alternativa ${mejorAlternativa.value}"
                 )
                 mejorAlternativa.value = "contado"
             }

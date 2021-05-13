@@ -80,10 +80,10 @@ class MainActivity : AppCompatActivity() {
         model.mejorAlternativa.observe(this, { text ->
             if (text == "financiado") {
                 binding.contadoLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
-                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                binding.cuotasLayout.setBackgroundColor(Color.parseColor("#4CAF50"))
             }
             if (text == "contado") {
-                binding.contadoLayout.setBackgroundColor(Color.parseColor("#C6EFD2"))
+                binding.contadoLayout.setBackgroundColor(Color.parseColor("#4CAF50"))
                 binding.cuotasLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
             }
         })
