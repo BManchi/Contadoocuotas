@@ -32,15 +32,16 @@ class CalcularViewModel : ViewModel() {
 
     fun calcularContado() {
         if (precioContado > 0 && descuento > 0) {
-            finalContado.value = precioContado.times((1 - (descuento.toDouble().div(100))))
-
+            finalContado.value = String.format(
+                "%.2f",
+                precioContado.times((1 - (descuento.toDouble().div(100))))
+                )
+                .toDouble()
             Log.d(TAG, "calularContado() finalContado = ${finalContado.value}")
-
 
             calcularMejor()
         } else {
             finalContado.value = precioContado
-
             Log.d(TAG, "calularContado() finalContado = ${finalContado.value}")
 
             calcularMejor()
